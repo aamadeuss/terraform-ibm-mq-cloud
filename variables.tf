@@ -2,7 +2,7 @@
 # Input Variables
 ########################################################################################################################
 
-variable "resource_group_id" {
+variable "rg_id" {
   type        = string
   description = "The ID of the resource group to provision the MQ on Cloud instance to."
 }
@@ -39,12 +39,12 @@ variable "subscription_id" {
 # Queue Manager Variables
 ########################################################################################################################
 
-variable "queue_manager_display_name" {
+variable "queue_mgr_display_name" {
   description = "A displayable name for the queue manager."
   type        = string
 }
 
-variable "queue_manager_location" {
+variable "queue_mgr_location" {
   description = "The location in which the queue manager will be deployed. Defaults to using the first location in the created service instance"
   type        = string
   default     = null
@@ -55,7 +55,7 @@ variable "queue_manager_name" {
   description = "A queue manager name conforming to MQ restrictions. 1 to 48 characters matching regular expression '/^[a-zA-Z0-9._]*$/' ."
 }
 
-variable "queue_manager_size" {
+variable "queue_mgr_size" {
   description = "The queue manager deployment sizes. Valid values are `xsmall`, `small`, `medium`, `large` ."
   type        = string
   default     = "xsmall"
@@ -71,7 +71,7 @@ variable "queue_manager_version" {
 # Resource Variables
 ########################################################################################################################
 
-variable "applications" {
+variable "apps" {
   description = "A map of IBM MQ on Cloud applications to be created."
   type = map(object({
     name = string
@@ -79,7 +79,7 @@ variable "applications" {
   default = {}
 }
 
-variable "keystore_certificates" {
+variable "keystore_certs" {
   description = "A map of IBM MQ on Cloud keystore certificates to be created."
   type = map(object({
     certificate = string
